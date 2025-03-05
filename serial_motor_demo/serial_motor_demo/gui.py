@@ -162,7 +162,10 @@ class MotorGui(Node):
             self.m1.config(from_=-255, to=255, resolution=1)
             self.m2.config(from_=-255, to=255, resolution=1)
         else:
-            lim = float(self.slider_max_val_box.get())
+            lim = self.slider_max_val_box.get()
+            if not(lim): lim = 0
+            
+            lim = float(lim)
             self.m1.config(from_=-lim, to=lim, resolution=0.1)
             self.m2.config(from_=-lim, to=lim, resolution=0.1)
 
